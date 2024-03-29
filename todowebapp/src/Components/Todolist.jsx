@@ -86,7 +86,7 @@ const Todolist = ({ userId, selectedOption, search }) => {
 
   return (
     <div className="h-full w-full ">
-      {todos.map((todo) => (
+      { todos.length > 0 ? (todos.map((todo) => (
         <div
           key={todo.docid}
           className="flex m-2 shadow justify-between items-center p-2"
@@ -140,7 +140,7 @@ const Todolist = ({ userId, selectedOption, search }) => {
             )}
           </div>
         </div>
-      ))}
+      ))):(<p className="flex justify-center items-center mt-10 text-slate-400">Add your Todo List</p>)}
     </div>
   );
 };

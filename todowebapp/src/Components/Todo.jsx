@@ -6,6 +6,7 @@ import { auth, db } from "../Config/Firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import Todolist from "./Todolist";
 import { signOut } from "firebase/auth";
+import Navbar from "./Navbar";
 
 const Todo = () => {
   
@@ -80,12 +81,12 @@ const Todo = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row h-screen ">
-      <div className="w-full md:w-1/2">
-        <div className="w-11 h-16 ml-10 mt-10">
-          <img src={Logo} alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="flex flex-col justify-center items-center w-full h-3/4">
+    <div className="h-screen">
+      <Navbar/>
+    <div className="flex flex-col sm:flex-row h-3/4  ">
+      <div className="w-full md:w-1/2 flex justify-center items-center">
+        
+        <div className="flex flex-col justify-center items-center w-full ">
           <h2 className="text-3xl font-semibold m-5">TODO</h2>
           <p className="text-[1.1rem] w-2/3 mb-2 text-slate-600">
             Instantly create your personalized todo list and stay organized. Get
@@ -122,15 +123,8 @@ const Todo = () => {
           </button>
         </div>
       </div>
-      <div className="w-full md:w-1/2 flex flex-col relative h-full">
-        <div className="flex justify-end">
-          <button
-            onClick={logOut}
-            className="h-10 w-20 shadow mr-10 mt-8 rounded-lg hover:bg-blue-500 hover:text-white"
-          >
-            Logout
-          </button>
-        </div>
+      <div className="w-full md:w-1/2 flex flex-col relative h-full mt-1 md:mt-2 justify-center items-center">
+       
         <div className="flex flex-col sm:flex-row w-full justify-around mt-2 items-center">
           <div className="flex h-7 justify-center items-center border">
             <input
@@ -155,7 +149,7 @@ const Todo = () => {
             </select>
           </div>
         </div>
-        <div className="">
+        <div className=" w-full mt-2">
           <h2 className="text-3xl font-semibold m-3 text-left">TODO LIST</h2>
         </div>
         <div className="list w-full mt-3 h-4/6 no-scrollbar overflow-scroll">
@@ -169,6 +163,8 @@ const Todo = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
 
